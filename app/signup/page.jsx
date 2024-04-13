@@ -2,8 +2,8 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function PreviewPage() {
-
+export default function Page() {
+  
   return (
     <div>
       {/* Login details */}
@@ -20,7 +20,7 @@ export default function PreviewPage() {
         </label>
         <button>Login</button>
       </div>
-     <Link href="/signup"><span>Already have an account? <p>Login</p> </span></Link> 
+    <Link href="/">  <span>Dont have an account? <p>SignUp</p> </span></Link>
     </div>
   );
 }
