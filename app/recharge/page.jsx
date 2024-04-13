@@ -7,7 +7,7 @@ function Page() {
     <div>
     <Link href="https://buy.stripe.com/test_fZebKm7b43Qj77yaEG">
     <button
-    className='p-2 bg-black text-white'>Proceed to PAy</button></Link>
+    className='p-2 bg-black text-white'>Proceed to Pay</button></Link>
     
     </div>
   )
