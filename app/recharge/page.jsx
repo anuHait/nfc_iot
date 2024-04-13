@@ -14,9 +14,9 @@ function Page() {
         
           <div className="flex flex-row gap-4 border border-[#EFA6AB] m-8 p-10 items-center w-[75%] lg:w-[38%] rounded-[13px] shadow-md">
             <Image src="/assets/coins.png" width={65} height={65} alt="coins" />
-            <div className="flex flex-col gap-2 items-center">
+            <div className="flex flex-col-reverse gap-2 items-center">
               <h1 className="text-2xl font-bold">245.00 INR</h1>
-              <h2 className="text-lg font-semibold text-gray-500">
+              <h2 className="text-md font-semibold text-gray-500">
                 Current Balance
               </h2>
             </div>
