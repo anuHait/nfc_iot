@@ -10,9 +10,10 @@ function Page() {
       <div className="flex flex-col gap-4 mt-16 p-2 w-full items-start justify-start">
         <h1 className="text-3xl font-bold ml-5">Your wallet</h1>
 
-        <div className="flex flex-col lg:flex-row gap-10 items-center md:items-start justify-between w-full">
-          <div className="flex flex-row gap-4 border border-[#EFA6AB] m-8 p-10 items-center w-fit rounded-[13px] shadow-md">
-            <Image src="/assets/coins.png" width={65} height={65} />
+        <div className="flex flex-col lg:flex-row gap-10 items-center md:items-start justify-start w-full">
+        
+          <div className="flex flex-row gap-4 border border-[#EFA6AB] m-8 p-10 items-center w-[75%] lg:w-[38%] rounded-[13px] shadow-md">
+            <Image src="/assets/coins.png" width={65} height={65} alt="coins" />
             <div className="flex flex-col gap-2 items-center">
               <h1 className="text-2xl font-bold">245.00 INR</h1>
               <h2 className="text-lg font-semibold text-gray-500">
@@ -27,7 +28,7 @@ function Page() {
             </button>
           </Link>
           <p className=" font-semibold text-center">OR</p>
-          <Image src="/assets/qr.png" width={200} height={250}/>
+          <Image src="/assets/qr.png" width={200} height={250} alt="qr"/>
         </div>
         </div>
 
