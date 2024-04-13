@@ -5,8 +5,10 @@ import Link from 'next/link';
 export default function PreviewPage() {
 
   return (
-    <div>
-      {/* Login details */}
+    <div className='flex flex-row items-start justify-between'>
+
+
+      {/* Login details 
       
       <div className='flex flex-col gap-3 transition-all duration-400 ease-in-out'>
       <h1 className='text-2xl font-semibold'>Login</h1>
@@ -20,7 +22,7 @@ export default function PreviewPage() {
         </label>
         <button>Login</button>
       </div>
-     <Link href="/signup"><span>Already have an account? <p>Login</p> </span></Link> 
+     <Link href="/signup"><span>Already have an account? <p>Login</p> </span></Link> */}
     </div>
   );
 }
