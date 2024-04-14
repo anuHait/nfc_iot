@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 import { NextResponse, NextRequest } from "next/server";
-
+import axios from "axios";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY,
   {
     apiVersion: "2020-08-27",
@@ -12,10 +12,7 @@ export async function POST(req) {
   const res = JSON.parse(payload);
 
   const sig = req.headers.get("Stripe-Signature");
-
-  const dateTime = new Date(res?.created * 1000).toLocaleDateString();
-  const timeString = new Date(res?.created * 1000).toLocaleDateString();
-
+  let amount=0;
   try {
     let event = stripe.webhooks.constructEvent(
       payload,
@@ -24,16 +21,6 @@ export async function POST(req) {
     );
 
     console.log("Event", event?.type);
-    // charge.succeeded
-    // payment_intent.succeeded
-    // payment_intent.created
-
-    console.log(
-      res?.data?.object?.billing_details?.email, // email
-      res?.data?.object?.amount, 
-      String(timeString), // time
-      res?.data?.object?.currency // Currency
-    );
     if (event.type === "checkout.session.completed") {
       const sessionWithLineItems = await stripe.checkout.sessions.retrieve(
         event.data.object.id,
@@ -41,16 +28,20 @@ export async function POST(req) {
           expand: ["line_items"],
         }
       );
-      const lineItems = sessionWithLineItems.line_items.data; // Access data directly
+      const lineItems = sessionWithLineItems.line_items.data; 
 
       if (!lineItems.length) return res.status(500).send("Internal Server Error");
 
       try {
-        // Save the data, change customer account info, etc
-        console.log("Fullfill the order with custom logic");
+        amount=(event.data.object.amount_total)/100;
         console.log("data", lineItems);
-        console.log("customer email", event.data.object.customer_details.email);
-        console.log("created", event.data.object.created);
+        //console.log("customer email", event.data.object.customer_details.email);
+        //console.log("amount", amount);
+        if(amount!=0){
+          const res=await axios.get(`https://aptcbackendw.vercel.app/update_balance/1619f204/${amount}`);
+          console.log("Response", res.data);
+          return NextResponse.json({ status: "Update success", event: event.type, response: res });
+        }
       } catch (error) {
         console.log("Handling when you're unable to save an order");
       }

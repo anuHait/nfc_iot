@@ -4,6 +4,9 @@ import Link from 'next/link';
 
 export default function PreviewPage() {
 
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <div className='flex flex-row items-start justify-between'>
     <div className='m-20 flex flex-col gap-4 items-start justify-start '>
@@ -18,7 +21,7 @@ export default function PreviewPage() {
     <div className='flex flex-col gap-5 mt-5'>
     
       <label className='flex flex-col gap-2'>
-        <p className='font-semibold'>Username</p>
+        <p className='font-semibold'>CardUID</p>
         <input className='border-2  border-[#EFA6AB] rounded-lg h-10 p-1 w-64 focus:outline-none focus:border-blue-800' placeholder='Username here..' />
       </label>
       <label className='flex flex-col gap-2'>

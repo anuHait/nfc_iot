@@ -1,9 +1,30 @@
-import React from "react";
+"use client";
+import React,{useState,useEffect} from "react";
 import Link from "next/link";
 import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
+import axios from "axios";
 function Page() {
   // visa card 4000003560000008
+  const [balance, setBalance] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const cardId = localStorage.getItem("cardId");
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true); // Set loading to true before making the request
+      try {
+        const response = await axios.get("https://aptcbackendw.vercel.app/get_balance/123456");
+        setBalance(response.data.balance);
+      } catch (error) {
+        console.error("Error fetching balance:", error);
+      } finally {
+        setLoading(false); // Set loading to false after the request is completed
+      }
+    }
+    fetchData();
+  }, []);
+  
+  
   return (
     <div className="flex flex-row gap-6">
       <Sidebar />
@@ -14,12 +35,19 @@ function Page() {
         
           <div className="flex flex-row gap-4 border border-[#EFA6AB] m-8 p-10 items-center w-[75%] lg:w-[38%] rounded-[13px] shadow-md">
             <Image src="/assets/coins.png" width={65} height={65} alt="coins" />
-            <div className="flex flex-col-reverse gap-2 items-center">
-              <h1 className="text-2xl font-bold">245.00 INR</h1>
+            {
+              loading ? (
+                <div>
+                <h1>Loading...</h1>
+                </div>
+              ):(<div className="flex flex-col-reverse gap-2 items-center">
+              <h1 className="text-2xl font-bold">{balance} INR</h1>
               <h2 className="text-md font-semibold text-gray-500">
                 Current Balance
               </h2>
-            </div>
+            </div>)
+            }
+            
           </div>
           <div className="flex flex-col gap-6 border border-[#EFA6AB] m-8 p-10 items-center justify-center rounded-[13px] w-[75%] lg:w-[52%] shadow-md">
           <Link href="https://buy.stripe.com/test_fZebKm7b43Qj77yaEG">
@@ -39,3 +67,5 @@ function Page() {
 }
 
 export default Page;
+
+
