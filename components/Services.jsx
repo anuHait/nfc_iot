@@ -13,7 +13,7 @@ function Services() {
         <p>Streamline Your Travel Experience with Our Innovative Card System</p>
       </div>
       {/*boxes for services */}
-      <div className="flex flex-wrap gap-10 w-full justify-center">
+      <div className="flex flex-wrap gap-10 w-full  justify-start">
         <div className="flex flex-col justify-center items-center shadow-xl w-1/5 rounded-2xl px-6 py-8 gap-4 border-2 border-cyan-400">
           {/* <img src="/assets/bus.jpg" alt="image" className=" w-40 lg:w-44" /> */}
           <BsCreditCard className="text-7xl font-bold text-cyan-600" />

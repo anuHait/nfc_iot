@@ -5,9 +5,10 @@ import axios from "axios";
 function Page() {
   //const cardId = localStorage.getItem("cardId");
   const [tableData, setTableData] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchTransactions() {
+      setLoading(true); 
       try {
         const response = await axios.get(
           "https://aptcbackendw.vercel.app/get_transaction_history/1a26687e"
@@ -15,6 +16,9 @@ function Page() {
         setTableData(response.data.transactionHistory);
       } catch (error) {
         console.error("Error fetching transaction data:", error);
+      }
+      finally {
+        setLoading(false); 
       }
     }
     fetchTransactions();
@@ -26,7 +30,8 @@ function Page() {
       <div className="p-5 flex flex-col gap-6 items-start justify-start w-full mt-16">
         <h1 className="text-3xl font-bold">Your card transactions</h1>
         <div>
-          <table class="table-fixed w-full  ">
+          {loading ? (<h1>Data Loading...</h1>):(<div>
+            <table class="table-fixed w-full  ">
             <thead>
               <tr>
                 <th className="py-4 text-lg font-semibold  border-2 border-[#40C0E7]">
@@ -44,6 +49,7 @@ function Page() {
               </tr>
             </thead>
             <tbody>
+            
               {tableData.map((item) => (
                 <tr>
                   <td className="py-2 bg-gray-100 border-2 border-[#4d84d6] px-3">
@@ -62,6 +68,8 @@ function Page() {
               ))}
             </tbody>
           </table>
+            </div>)
+            }
         </div>
       </div>
     </div>
