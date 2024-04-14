@@ -34,9 +34,8 @@ export default function PreviewPage() {
       <div className='ml-20 mt-20 flex flex-col  items-start justify-start w-[55%] '>
         <div className='flex flex-col gap-5 mt-10 '>
           <h1 className='text-3xl font-bold '>Transit Ease Pass</h1>
-          <p className='text-md leading-6 tracking-wider'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sed fugit sunt error facilis a, dicta
-            nam. Alias, explicabo deleniti.
+          <p className='text-md leading-6 text-gray-600 italic font-semibold'>
+          Say goodbye to the hassles of traditional payment methods. Our IoT-enabled card system offers a seamless payment experience for all your transportation needs. Whether you're commuting to work, exploring a new city, or running errands, our card ensures smooth transactions every time.
           </p>
         </div>
 
@@ -44,7 +43,7 @@ export default function PreviewPage() {
           <label className='flex flex-col gap-2'>
             <p className='font-semibold'>CardUID</p>
             <input
-              className='border-2  border-[#EFA6AB] rounded-lg h-10 p-1 w-64 focus:outline-none focus:border-blue-800'
+              className='border-2  border-[#EFA6AB] rounded-lg h-10 p-2 w-64 focus:outline-none focus:border-blue-800'
               placeholder='Username here..'
               value={username}
               onChange={handleChangeUsername}

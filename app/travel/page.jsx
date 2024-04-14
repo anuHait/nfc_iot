@@ -15,7 +15,7 @@ function Page() {
   return (
     <div className='m-20 flex flex-col gap-5 items-center justify-start'>
       <h1 className='text-2xl font-semibold mb-10'>Your Current Travel Status</h1>
-<ol class="items-center sm:flex">
+<ol class="items-center sm:flex sm:items-center ">
 <li class="relative mb-6 sm:mb-0" onClick={()=>handleClick("A")}>
     <div class="flex items-center">
         <div class="z-10 flex items-center justify-center w-6 h-6 bg-[#e95b65] rounded-full ring-0 ring-white shrink-0">
@@ -26,7 +26,7 @@ function Page() {
         <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
     </div>
     <div class="mt-3 ">
-        <time class="block mb-2 text-lg font-semibold leading-nonetext-gray-500 w-52">Stop A</time>
+        <time class="block mb-2 text-lg font-semibold leading-nonetext-gray-500 w-52 -ml-2">Stop A</time>
        
     </div>
 </li>
@@ -40,7 +40,7 @@ function Page() {
         <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
     </div>
     <div class="mt-3 ">
-    <time class="block mb-2 text-lg font-semibold leading-nonetext-gray-500 w-52">Stop B</time>
+    <time class="block mb-2 text-lg font-semibold leading-nonetext-gray-500 w-52 -ml-2">Stop B</time>
     </div>
 </li>
 <li class="relative mb-6 sm:mb-0" onClick={()=>handleClick("C")}>
@@ -53,7 +53,7 @@ function Page() {
         <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
     </div>
     <div class="mt-3 ">
-    <time class="block mb-2 text-lg font-semibold leading-nonetext-gray-500 w-52">Stop C</time>
+    <time class="block mb-2 text-lg font-semibold leading-nonetext-gray-500 w-52 -ml-2">Stop C</time>
     </div>
 </li>
 <li class="relative mb-6 sm:mb-0" onClick={()=>handleClick("D")}>
@@ -66,7 +66,7 @@ function Page() {
         
     </div>
     <div class="mt-3 ">
-    <time class="block mb-2 text-lg font-semibold leading-nonetext-gray-500 w-52">Stop D</time>
+    <time class="block mb-2 text-lg font-semibold leading-nonetext-gray-500 w-52 -ml-2">Stop D</time>
     </div>
 </li>
 
